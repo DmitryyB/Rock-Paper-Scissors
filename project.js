@@ -1,57 +1,91 @@
-// let rock = 'Rock'
-// let paper = 'Paper'
-// let scissors = 'Scissors'
 
-function getComputerChoice() {
-    computerChoice = Math.floor(Math.random() * 3);
-    if (computerChoice == 0) {
-        return 'scissors'
-    } else if (computerChoice == 1) {
-        return 'paper'
+const computerChoice = '';
+let computerCount = 0;
+let playerCount = 0;
+
+function getComputerChoice(computerChoice) {
+    const random = Math.floor(Math.random() * 3); 
+    if (random == 0) {
+        computerChoice = 'scissors'
+    } else if (random == 1) {
+        computerChoice = 'paper'
     } else {
-        return 'rock'
+        computerChoice = 'rock'
+    }
+    return computerChoice;
+}
+
+function playRound (playerSelection, computerSelection) {
+    playerSelection = prompt('Rock Paper Scissors');
+    playerSelection = playerSelection.toLowerCase(); 
+
+    if (playerSelection == "rock" && computerSelection == "paper") {
+        alert ('Paper beats Rock');
+        computerCount ++;
+    } 
+    else if (playerSelection === "scissors" && computerSelection === "paper") {
+        alert ('Scissors beats Paper');
+        playerCount ++;
+    }
+    else if (playerSelection === "paper" && computerSelection === "paper") {
+        alert ('Paper vs Paper');
+    }
+
+
+    else if (playerSelection === "rock" && computerSelection === "scissors") {
+        alert ('Rock beats Scissors');
+        playerCount ++; 
+    }
+     else if (playerSelection === "scissors" && computerSelection === "scissors") {
+        alert ('Scissors vs Scissors');
+    }
+    else if (playerSelection === "paper" && computerSelection === "scissors") {
+        alert ('Scissors beats Paper');
+        computerCount ++;
+    }
+
+
+    else if (playerSelection === "rock" && computerSelection === "rock") {
+        alert ('Rock vs Rock');
+         
+    }
+     else if (playerSelection === "scissors" && computerSelection === "rock") {
+        alert ('Rock beats Scissors');
+        computerCount ++;
+    }
+    else if (playerSelection !== "scissors" && playerSelection !== "rock" && playerSelection !== "paper") {
+        alert('Invalid word, game restarted');
+        game();
+    }
+     else  {
+        alert ('Paper beats Rock');
+        playerCount ++;
+    } 
+    return playerCount;
+}
+
+function game() {
+    computerCount = 0;
+    playerCount = 0;
+
+    let rounds = 5;
+    for (let i = 0; i < rounds; i++) {
+           console.log(playRound(playerSelection, getComputerChoice(computerChoice)));
+    }
+    defineWinner(playerCount, computerCount);
+}
+
+function defineWinner(playerCount, computerCount) {
+    if (playerCount > computerCount) {
+        alert ('Congrats! You Won!')
+    } else if (playerCount == computerCount) {
+        alert ('Tie')
+    } else {
+        alert('Computer wins!')
     }
 }
 
-getComputerChoice()
-
-
-function playRound (playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-
-    if (playerSelection == "rock" && computerSelection == "paper") {
-        console.log('You Lose! Paper beats Rock')
-        return 
-    } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        console.log('You Won!')
-    }
-    else if (playerSelection == "paper" && computerSelection == "paper") {
-        console.log('A tie!')
-    }
-
-
-    else if (playerSelection == "rock" && computerSelection == "scissors") {
-        console.log('You Won!')
-        return 
-    } else if (playerSelection == "scissors" && computerSelection == "scissors") {
-        console.log('A tie!')
-    }
-    else if (playerSelection == "paper" && computerSelection == "scissors") {
-        console.log('You Lose! Scissors beats Paper')
-    }
-
-
-    else if (playerSelection == "rock" && computerSelection == "rock") {
-        console.log('A tie!')
-        return 
-    } else if (playerSelection == "scissors" && computerSelection == "rock") {
-        console.log('You Lose! Rock beats Scissors')
-    }
-    else  {
-        console.log('You Won!')
-    }   
-    }
-
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+const playerSelection = '';
+const computerSelection = getComputerChoice(computerChoice);
+// console.log(playRound(playerSelection, computerSelection));
+game()
