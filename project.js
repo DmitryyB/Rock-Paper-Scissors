@@ -55,6 +55,7 @@ function playRound (playerSelection, computerSelection) {
     }
     else if (playerSelection !== "scissors" && playerSelection !== "rock" && playerSelection !== "paper") {
         alert('Invalid word, game restarted');
+        console.clear()
         game();
     }
      else  {
@@ -73,6 +74,7 @@ function game() {
            console.log(playRound(playerSelection, getComputerChoice(computerChoice)));
     }
     defineWinner(playerCount, computerCount);
+    console.clear();
 }
 
 function defineWinner(playerCount, computerCount) {
@@ -83,7 +85,6 @@ function defineWinner(playerCount, computerCount) {
     } else {
         alert('Computer wins!')
     }
-    console.clear()
 }
 
 const playerSelection = '';
