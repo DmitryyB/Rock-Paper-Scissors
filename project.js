@@ -83,6 +83,7 @@ function defineWinner(playerCount, computerCount) {
     } else {
         alert('Computer wins!')
     }
+    console.clear()
 }
 
 const playerSelection = '';
