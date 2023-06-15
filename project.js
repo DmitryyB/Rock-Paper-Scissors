@@ -26,35 +26,35 @@ function playRound (playerSelection, computerSelection) {
     }
 
     if (playerSelection == "rock" && computerSelection == "paper") {
-        alert ('Paper beats Rock');
+        message.textContent = 'Paper beats Rock'
         computerCount ++;
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        alert ('Scissors beats Paper');
+        message.textContent = 'Scissors beats Paper'
         playerCount ++;
     } else if (playerSelection === "paper" && computerSelection === "paper") {
-        alert ('Paper vs Paper');
+        message.textContent = 'Paper vs Paper'
     }
 
 
     else if (playerSelection === "rock" && computerSelection === "scissors") {
-        alert ('Rock beats Scissors');
+        message.textContent = 'Rock beats Scissors'
         playerCount ++; 
     } else if (playerSelection === "scissors" && computerSelection === "scissors") {
-        alert ('Scissors vs Scissors');
+        message.textContent = 'Scissors vs Scissors'
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        alert ('Scissors beats Paper');
+        message.textContent = 'Scissors beats Paper'
         computerCount ++;
     }
 
 
     else if (playerSelection === "rock" && computerSelection === "rock") {
-        alert ('Rock vs Rock');
+        message.textContent = 'Rock vs Rock'
          
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        alert ('Rock beats Scissors');
+        message.textContent = 'Rock beats Scissors'
         computerCount ++;
     } else  {
-        alert ('Paper beats Rock');
+        message.textContent = 'Paper beats Rock'
         playerCount ++;
     } 
     // console.log(playerCount);
@@ -86,6 +86,9 @@ const rps = document.querySelector('.rps');
 const score = document.createElement('div');
 score.classList.add('score');
 rps.appendChild(score);
+
+const message = document.createElement('div');
+rps.appendChild(message);
 
 
 const rock = document.querySelector('#rock');

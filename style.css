@@ -29,6 +29,11 @@ button {
     font-size: 1.5em;
 }
 
+button:hover {
+    cursor: pointer;
+    box-shadow: 3px 5px rgb(173, 173, 0);
+}
+
 h1 {
     margin-top: 20px;
 }
