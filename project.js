@@ -73,7 +73,7 @@ function defineWinner(playerCount, computerCount) {
         congrats.style.fontSize = '2rem';
         winner = true;
     } else if (computerCount === 5) {
-        congrats.textContent = 'You Lose!';
+        congrats.textContent = 'You Lost!';
         congrats.style.backgroundColor = 'red';
         congrats.style.fontSize = '2rem';
         winner = true;
